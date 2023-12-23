@@ -2,7 +2,6 @@ package br.com.grimoire.apirestrpgv02.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,22 +13,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.grimoire.apirestrpgv02.model.Habilidade;
+import br.com.grimoire.apirestrpgv02.model.dto.CadastroHabilidadeDTO;
 import br.com.grimoire.apirestrpgv02.service.HabilidadeService;
+import lombok.RequiredArgsConstructor;
 
 @CrossOrigin
+@RequiredArgsConstructor
 @RestController
-@RequestMapping("/habilidade")
+@RequestMapping("/habilidades")// plural no endpoint (Padrão REST)
 public class HabilidadeController {
 
-    @Autowired
-    private HabilidadeService habilidadeService;
+    private final HabilidadeService habilidadeService; // Injeção de dependencia com LOMBOK
 
     @PostMapping()
-    public ResponseEntity<Habilidade> salvarHabilidade(@RequestBody Habilidade habilidade) {
+    public ResponseEntity<Long> criarHabilidade(@RequestBody CadastroHabilidadeDTO cadastroHabilidadeDTO) {
 
-        habilidadeService.salvarHabilidade(habilidade);
+        Long idHabilidade = habilidadeService.criarHabilidade(cadastroHabilidadeDTO).getId();
 
-        return ResponseEntity.status(201).body(habilidade);
+        return ResponseEntity.ok().body(idHabilidade);
     }
 
     @GetMapping()
@@ -37,7 +38,7 @@ public class HabilidadeController {
 
         List<Habilidade> habilidades = habilidadeService.listarHabilidade();
 
-        return ResponseEntity.status(200).body(habilidades);
+        return ResponseEntity.ok().body(habilidades);
     }
 
     @GetMapping("/{id}")

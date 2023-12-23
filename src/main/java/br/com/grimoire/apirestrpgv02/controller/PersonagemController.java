@@ -14,17 +14,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.grimoire.apirestrpgv02.model.Personagem;
 import br.com.grimoire.apirestrpgv02.service.PersonagemService;
+import lombok.RequiredArgsConstructor;
 
 @CrossOrigin
+@RequiredArgsConstructor
 @RestController
-@RequestMapping("/personagem")
+@RequestMapping("/personagens")// plural no endpoint (Padrão REST)
 public class PersonagemController {
 
-    private final PersonagemService personagemService;
-
-    PersonagemController(PersonagemService personagemService) {
-        this.personagemService = personagemService;
-    }
+    private final PersonagemService personagemService; // Injeção de dependencia com LOMBOK
 
     @PostMapping()
     public ResponseEntity<Personagem> salvarPersonagem(@RequestBody Personagem personagem) {
