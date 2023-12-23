@@ -20,10 +20,10 @@ import lombok.RequiredArgsConstructor;
 @CrossOrigin
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/habilidades")// plural no endpoint (Padrão REST)
+@RequestMapping("/habilidades")
 public class HabilidadeController {
 
-    private final HabilidadeService habilidadeService; // Injeção de dependencia com LOMBOK
+    private final HabilidadeService habilidadeService;
 
     @PostMapping()
     public ResponseEntity<Long> criarHabilidade(@RequestBody CadastroHabilidadeDTO cadastroHabilidadeDTO) {
