@@ -1,4 +1,4 @@
-package br.com.grimoire.apirestrpgv02.server;
+package br.com.grimoire.apirestrpgv02.service;
 
 import java.util.List;
 

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.grimoire.apirestrpgv02.model.Personagem;
-import br.com.grimoire.apirestrpgv02.server.PersonagemService;
+import br.com.grimoire.apirestrpgv02.service.PersonagemService;
 
 @CrossOrigin
 @RestController

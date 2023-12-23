@@ -1,4 +1,4 @@
-package br.com.grimoire.apirestrpgv02.server.Impl;
+package br.com.grimoire.apirestrpgv02.service.Impl;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import br.com.grimoire.apirestrpgv02.model.Personagem;
 import br.com.grimoire.apirestrpgv02.model.exception.NotFoundException;
 import br.com.grimoire.apirestrpgv02.repository.PersonagemRepository;
-import br.com.grimoire.apirestrpgv02.server.PersonagemService;
+import br.com.grimoire.apirestrpgv02.service.PersonagemService;
 
 @Service
 public class PersonagemServiceImpl implements PersonagemService {

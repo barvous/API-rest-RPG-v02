@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.grimoire.apirestrpgv02.model.Habilidade;
-import br.com.grimoire.apirestrpgv02.server.HabilidadeService;
+import br.com.grimoire.apirestrpgv02.service.HabilidadeService;
 
 @CrossOrigin
 @RestController

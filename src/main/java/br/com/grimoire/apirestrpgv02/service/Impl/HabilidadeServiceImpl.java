@@ -1,4 +1,4 @@
-package br.com.grimoire.apirestrpgv02.server.Impl;
+package br.com.grimoire.apirestrpgv02.service.Impl;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import br.com.grimoire.apirestrpgv02.model.Habilidade;
 import br.com.grimoire.apirestrpgv02.model.exception.BadRequestException;
 import br.com.grimoire.apirestrpgv02.model.exception.NotFoundException;
 import br.com.grimoire.apirestrpgv02.repository.HabilidadeRepository;
-import br.com.grimoire.apirestrpgv02.server.HabilidadeService;
+import br.com.grimoire.apirestrpgv02.service.HabilidadeService;
 
 @Service
 public class HabilidadeServiceImpl implements HabilidadeService {
