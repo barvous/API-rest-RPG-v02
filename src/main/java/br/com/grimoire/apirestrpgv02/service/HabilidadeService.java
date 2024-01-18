@@ -9,6 +9,8 @@ public interface HabilidadeService {
 
     List<Habilidade> listarHabilidade();
 
+    List<Habilidade> procurarHabilidade(String procura);
+
     Habilidade buscarHabilidade(Long idHabilidade);
 
     Habilidade criarHabilidade(CadastroHabilidadeDTO cadastroHabilidadeDTO);

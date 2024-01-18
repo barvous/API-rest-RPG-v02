@@ -1,0 +1,5 @@
+spring:
+    datasource:
+        url: jdbc:h2:file:./rest-rpg-teste # Conexão do banco de dados no H2
+        username: teste
+        password: teste123

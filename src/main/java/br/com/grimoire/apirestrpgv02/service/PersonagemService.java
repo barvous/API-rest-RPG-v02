@@ -9,6 +9,8 @@ public interface PersonagemService {
 
     List<Personagem> listarPersonagem();
 
+    List<Personagem> procurarPersonagem(String procura);
+
     Personagem buscarPersonagem(Long idPersonagem);
 
     Personagem criarPersonagem(CadastroPersonagemDTO cadastroPersonagemDTO);

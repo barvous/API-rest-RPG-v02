@@ -26,6 +26,11 @@ public class PersonagemServiceImpl implements PersonagemService {
     }
 
     @Override
+    public List<Personagem> procurarPersonagem(String procura) {
+        return personagemRepository.findByNomePersonagemOrNomeJogador(procura);
+    }
+
+    @Override
     public Personagem buscarPersonagem(Long idPersonagem) {
         return personagemRepository.findById(idPersonagem)
                 .orElseThrow(() -> new NotFoundException("Falha ao procurar o personagem"));

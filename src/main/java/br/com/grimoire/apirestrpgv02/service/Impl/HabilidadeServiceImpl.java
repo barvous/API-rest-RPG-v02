@@ -26,6 +26,11 @@ public class HabilidadeServiceImpl implements HabilidadeService {
     }
 
     @Override
+    public List<Habilidade> procurarHabilidade(String procura) {
+        return habilidadeRepository.findByNomeOrDescricaoContaining(procura);
+    }
+
+    @Override
     public Habilidade buscarHabilidade(Long idHabilidade) {
         return habilidadeRepository.findById(idHabilidade)
                 .orElseThrow(() -> new NotFoundException("Falha ao procurar a habilidade"));
@@ -54,7 +59,7 @@ public class HabilidadeServiceImpl implements HabilidadeService {
 
         try {
             habilidadeRepository.save(habilidadeDB);
-            
+
         } catch (Exception e) {
             throw new InternalServerException("Falha ao atualizar a habilidade");
         }
@@ -69,7 +74,7 @@ public class HabilidadeServiceImpl implements HabilidadeService {
         try {
 
             habilidadeRepository.delete(habilidadeDB);
-            
+
         } catch (Exception e) {
             throw new InternalServerException("Falha ao deletar a habilidade");
         }
