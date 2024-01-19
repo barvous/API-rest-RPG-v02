@@ -26,8 +26,13 @@ public class HabilidadeServiceImpl implements HabilidadeService {
     }
 
     @Override
-    public List<Habilidade> procurarHabilidade(String procura) {
-        return habilidadeRepository.findByNomeOrDescricaoContaining(procura);
+    public List<Habilidade> procurarHabilidadeNome(String procuraNome) {
+        return habilidadeRepository.findByNomeContaining(procuraNome);
+    }
+
+    @Override
+    public List<Habilidade> procurarHabilidadeDescricao(String procuraDescricao) {
+        return habilidadeRepository.findByDescricaoContaining(procuraDescricao);
     }
 
     @Override

@@ -26,9 +26,16 @@ public class PersonagemServiceImpl implements PersonagemService {
     }
 
     @Override
-    public List<Personagem> procurarPersonagem(String procura) {
-        return personagemRepository.findByNomePersonagemOrNomeJogador(procura);
+    public List<Personagem> procurarPersonagemNomePersonagem(String procura) {
+        return personagemRepository.findByNomePersonagemContaining(procura);
     }
+
+    
+    @Override
+    public List<Personagem> procurarPersonagemNomeJogador(String procuraNomeJogador) {
+        return personagemRepository.findByNomeJogadorContaining(procuraNomeJogador);
+    }
+
 
     @Override
     public Personagem buscarPersonagem(Long idPersonagem) {

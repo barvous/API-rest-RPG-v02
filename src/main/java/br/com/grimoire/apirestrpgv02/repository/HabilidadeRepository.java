@@ -8,5 +8,7 @@ import br.com.grimoire.apirestrpgv02.model.Habilidade;
 
 public interface HabilidadeRepository extends JpaRepository<Habilidade, Long> {
 
-    List<Habilidade> findByNomeOrDescricaoContaining(String procura);
+    List<Habilidade> findByNomeContaining(String procuraNomeHabilidade);
+
+    List<Habilidade> findByDescricaoContaining(String procuraDescricaoHabilidade);
 }

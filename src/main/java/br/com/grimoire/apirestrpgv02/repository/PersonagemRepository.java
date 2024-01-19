@@ -9,5 +9,7 @@ import br.com.grimoire.apirestrpgv02.model.Personagem;
 public interface PersonagemRepository extends JpaRepository<Personagem, Long> {
 
 
-    List<Personagem> findByNomePersonagemOrNomeJogador(String procura);
+    List<Personagem> findByNomePersonagemContaining(String procuraNomePersonagem);
+
+    List<Personagem> findByNomeJogadorContaining(String procuraNomeJogador);
 }

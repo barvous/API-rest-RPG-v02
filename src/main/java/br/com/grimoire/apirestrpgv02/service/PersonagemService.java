@@ -9,7 +9,9 @@ public interface PersonagemService {
 
     List<Personagem> listarPersonagem();
 
-    List<Personagem> procurarPersonagem(String procura);
+    List<Personagem> procurarPersonagemNomePersonagem(String procuraNomePersonagem);
+
+    List<Personagem> procurarPersonagemNomeJogador(String procuraNomeJogador);
 
     Personagem buscarPersonagem(Long idPersonagem);
 
