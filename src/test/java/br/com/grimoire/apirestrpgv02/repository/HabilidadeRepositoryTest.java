@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
 
+import br.com.grimoire.apirestrpgv02.enums.TipoRitualEnum;
 import br.com.grimoire.apirestrpgv02.model.Habilidade;
 import jakarta.persistence.EntityManager;
 
@@ -25,55 +26,53 @@ public class HabilidadeRepositoryTest {
 
     void createHabilidades() {
 
-        Habilidade habilidade1 = new Habilidade(null, "Amaldiçoar Arma",
-                "Você imbui sua arma com algum elemento escolhido (Morte, Sangue, Conhecimento ou Energia), a sua arma "
-                        + "da +1d6 de dano extra deste elemento.",
-                "Escolhido");
+        Habilidade habilidade1 = new Habilidade(null, "Pressurização Bestial",
+                "Você aumenta a sua pressão sanguínea, aumentando os batimentos cardíacos e o fluxo de adrenalina no seu corpo. Você ganha 2d4 de vida temporária durante a cena.",
+                TipoRitualEnum.SANGUE.getTipoRitual(), "1PE", "2d4");
         entityManager.persist(habilidade1);
 
-        Habilidade habilidade2 = new Habilidade(null, "Cicatrização",
-                "Você acelera uma área específica do corpo de alguem em pouquissimo tempo, causando uma cicatrização" +
-                        "forçada e extremamente acelerada. Você cura a pessoa em 2d8 + 4. A pessoa curada envelhece 1 ano de vida",
-                "Morte");
+        Habilidade habilidade2 = new Habilidade(null, "Sussurro sombrio",
+                "O outro lado sussurra segredos para você sobre o mundo à sua volta. Você ganha vantagem nos seus testes de Percepção e Investigação.",
+                TipoRitualEnum.CONHECIMENTO.getTipoRitual(), "1PE", null);
         entityManager.persist(habilidade2);
-
     }
 
     @Test
-    @DisplayName("Shoul get a List of Habilidade successfully from DB")
-    void testFindByDescricaoContainingCaseSuccess() {
+    @DisplayName("Should get a List of Habilidades successfully from DB")
+    void testFindByDescricaoContaining() {
 
         createHabilidades();
 
-        List<Habilidade> listaHabilidade = habilidadeRepository.findByDescricaoContaining("Você imbui sua arma");
+        List<Habilidade> listaHabilidade = habilidadeRepository.findByDescricaoContaining("2d4 de vida");
 
         assertThat(!listaHabilidade.isEmpty()).isTrue();
     }
 
     @Test
-    @DisplayName("Shoul get an empty List of Habilidade from DB")
+    @DisplayName("Should get an Empty List of Habilidades from DB")
     void testFindByDescricaoContainingCaseEmpty() {
 
-        List<Habilidade> listaHabilidade = habilidadeRepository.findByDescricaoContaining("Você imbui sua arma");
+        List<Habilidade> listaHabilidade = habilidadeRepository.findByDescricaoContaining("2d4 de vida");
 
         assertThat(listaHabilidade.isEmpty()).isTrue();
     }
 
     @Test
-    @DisplayName("Shoul get a List of Habilidade successfully from DB")
-    void testFindByNomeContainingCaseSuccess() {
+    @DisplayName("Should get a List of Habilidades successfully from DB")
+    void testFindByNomeContaining() {
 
         createHabilidades();
 
-        List<Habilidade> listaHabilidade = habilidadeRepository.findByNomeContaining("Amaldi");
+        List<Habilidade> listaHabilidade = habilidadeRepository.findByNomeContaining("Sussurro");
 
         assertThat(!listaHabilidade.isEmpty()).isTrue();
     }
 
     @Test
-    @DisplayName("Shoul get an empty List of Habilidade from DB")
+    @DisplayName("Should get an Empty List of Habilidades from DB")
     void testFindByNomeContainingCaseEmpty() {
-        List<Habilidade> listaHabilidade = habilidadeRepository.findByNomeContaining("Amaldi");
+
+        List<Habilidade> listaHabilidade = habilidadeRepository.findByNomeContaining("Sussurro");
 
         assertThat(listaHabilidade.isEmpty()).isTrue();
     }
