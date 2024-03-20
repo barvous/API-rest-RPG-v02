@@ -56,8 +56,22 @@ public class PersonagemRepositoryTest {
     }
 
     @Test
-    void findByNomePersonagemContaining() {
+    @DisplayName("Should get a List of Personagem successfully from DB")
+    void findByNomePersonagemContainingCaseExists() {
+        createPersonagens();
 
+        List<Personagem> listaPersonagem = personagemRepository.findByNomePersonagemContaining("Thorfinn");
+
+        assertThat(!listaPersonagem.isEmpty()).isTrue();
+
+    }
+
+    @Test
+    @DisplayName("Should get a Empty List of Personagem from DB")
+    void findByNomePersonagemContainingCaseEmpty() {
+        List<Personagem> listaPersonagem = personagemRepository.findByNomePersonagemContaining("Thorfinn");
+
+        assertThat(listaPersonagem.isEmpty()).isTrue();
     }
 
 }

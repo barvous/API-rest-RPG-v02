@@ -37,4 +37,11 @@ public class Habilidade {
     @Column(name = "VALOR_HABILIDADE")
     private String valor;
 
+    public Habilidade(Long id, String nome, String descricao, String tipo) {
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.tipo = tipo;
+    }
+
 }
