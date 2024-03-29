@@ -23,12 +23,14 @@ public class PersonagemRepositoryTest {
     PersonagemRepository personagemRepository;
 
     void createPersonagens() {
-        Personagem personagem1 = new Personagem(null, "Marcos Daniel", "Thorfinn Silverskin", "Órfão", "Bruxo", 20, 8,
+        Personagem personagem1 = new Personagem(null, "Marcos Daniel", "Thorfinn Silverskin", "Órfão", "Bruxo", 20, 40,
+                40, 20, 20, 8,
                 14,
                 10, 14, 17);
         entityManager.persist(personagem1);
 
         Personagem personagem2 = new Personagem(null, "Ruan Jantorno", "Holdornn Silverskin", "Órfão", "Bárbaro", 20,
+                75, 75, 15, 15,
                 17,
                 14, 8, 14, 10);
         entityManager.persist(personagem2);

@@ -28,12 +28,12 @@ public class HabilidadeRepositoryTest {
 
         Habilidade habilidade1 = new Habilidade(null, "Pressurização Bestial",
                 "Você aumenta a sua pressão sanguínea, aumentando os batimentos cardíacos e o fluxo de adrenalina no seu corpo. Você ganha 2d4 de vida temporária durante a cena.",
-                TipoRitualEnum.SANGUE.getTipoRitual(), "1PE", "2d4");
+                "Aprimoramento", TipoRitualEnum.SANGUE.getTipoRitual(), "1PE", "2d4");
         entityManager.persist(habilidade1);
 
         Habilidade habilidade2 = new Habilidade(null, "Sussurro sombrio",
                 "O outro lado sussurra segredos para você sobre o mundo à sua volta. Você ganha vantagem nos seus testes de Percepção e Investigação.",
-                TipoRitualEnum.CONHECIMENTO.getTipoRitual(), "1PE", null);
+                "Aprimoramento", TipoRitualEnum.CONHECIMENTO.getTipoRitual(), "1PE", null);
         entityManager.persist(habilidade2);
     }
 

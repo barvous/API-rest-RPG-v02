@@ -37,6 +37,18 @@ public class Personagem {
     @Column(name = "NEX")
     private Integer nex;
 
+    @Column(name = "PV_MAXIMO")
+    private int pvMaximo;
+
+    @Column(name = "PV_ATUAL")
+    private int pvAtual;
+
+    @Column(name = "PE_MAXIMO")
+    private int peMaximo;
+
+    @Column(name = "PE_ATUAL")
+    private int peAtual;
+
     @Column(name = "ATRIBUTO_FORCA", nullable = false)
     private Integer atributoForca;
 

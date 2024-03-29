@@ -30,6 +30,9 @@ public class Habilidade {
 
     @Column(name = "TIPO_HABILIDADE", nullable = false)
     private String tipo;
+    
+    @Column(name = "ELEMENTO_HABILIDADE")
+    private String elemento;
 
     @Column(name = "CUSTO")
     private String custo;
