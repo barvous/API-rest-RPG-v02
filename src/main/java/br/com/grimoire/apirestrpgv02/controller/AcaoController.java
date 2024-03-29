@@ -19,7 +19,7 @@ public class AcaoController {
     // Estes endpoints não estão seguindo os padrões REST, eles foram feitos assim apenas para utilização do acaoService
     // e este por sua vez, existe apenas para o estudo dos testes unitários
 
-    @GetMapping(params = {"idHabilidade", "idPersonagemOrigem", "idPersonagemAlvo"})
+    @GetMapping(path = "/dano", params = {"idHabilidade", "idPersonagemOrigem", "idPersonagemAlvo"})
     public ResponseEntity<Void> acaoDanoHabilidade(@RequestParam Long idHabilidade, @RequestParam Long idPersonagemOrigem,
     @RequestParam Long idPersonagemAlvo){
 
@@ -28,7 +28,7 @@ public class AcaoController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping(params = {"idHabilidade", "idPersonagemOrigem", "idPersonagemAlvo"})
+    @GetMapping(path = "/cura", params = {"idHabilidade", "idPersonagemOrigem", "idPersonagemAlvo"})
     public ResponseEntity<Void> curaDanoHabilidade(@RequestParam Long idHabilidade, @RequestParam Long idPersonagemOrigem,
     @RequestParam Long idPersonagemAlvo){
 
