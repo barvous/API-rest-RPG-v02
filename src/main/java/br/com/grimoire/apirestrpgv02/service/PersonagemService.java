@@ -19,6 +19,8 @@ public interface PersonagemService {
 
     void atualizarPersonagem(CadastroPersonagemDTO cadastroPersonagemDTO, Long idPersonagem);
 
+    void atualizarPersonagem(Personagem personagem, Long idPersonagem);
+
     void deletarPersonagem(Long idPersonagem);
 
 }

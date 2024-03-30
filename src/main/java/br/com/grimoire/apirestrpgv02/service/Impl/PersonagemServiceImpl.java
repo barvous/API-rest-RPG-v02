@@ -30,12 +30,10 @@ public class PersonagemServiceImpl implements PersonagemService {
         return personagemRepository.findByNomePersonagemContaining(procura);
     }
 
-    
     @Override
     public List<Personagem> procurarPersonagemNomeJogador(String procuraNomeJogador) {
         return personagemRepository.findByNomeJogadorContaining(procuraNomeJogador);
     }
-
 
     @Override
     public Personagem buscarPersonagem(Long idPersonagem) {
@@ -51,6 +49,20 @@ public class PersonagemServiceImpl implements PersonagemService {
             return personagemRepository.save(cadastroPersonagemDTO.convertToPersonagem());
         } catch (Exception e) {
             throw new InternalServerException("Falha ao criar o personagem no banco de dados");
+        }
+    }
+
+    @Override
+    @Transactional
+    public void atualizarPersonagem(Personagem personagem, Long idPersonagem) {
+        try {
+            Personagem personagemDB = buscarPersonagem(idPersonagem);
+
+            BeanUtils.copyProperties(personagem, personagemDB, "id");
+
+            personagemRepository.save(personagemDB);
+        } catch (Exception e) {
+            throw new InternalServerException("Falha ao atualizar o personagem no banco de dados");
         }
     }
 
