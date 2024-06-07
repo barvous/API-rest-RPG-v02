@@ -50,7 +50,7 @@ public class PersonagemController {
     }
 
     @PutMapping(path = "/{idPersonagem}")
-    public ResponseEntity<Long> atualizar(@RequestBody CadastroPersonagemDTO cadastroPersonagemDTO, Long idPersonagem) {
+    public ResponseEntity<Long> atualizar(@RequestBody CadastroPersonagemDTO cadastroPersonagemDTO,@PathVariable Long idPersonagem) {
 
         personagemService.atualizarPersonagem(cadastroPersonagemDTO, idPersonagem);
 
